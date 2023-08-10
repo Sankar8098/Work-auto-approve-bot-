@@ -7,7 +7,7 @@ class Config:
     FSUB = getenv("FSUB", "none")
     CHID = int(getenv("CHID", "-100"))
     SUDO = list(map(int, getenv("SUDO", "5821871362").split()))
-    MONGO_URI = getenv("MONGO_URI", "mongodb+srv://Test:1234@cluster0.2bzsp0q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    MONGO_URI = getenv("MONGO_URI", "mongodb+srv://sankar:sankar@sankar.lldcdsx.mongodb.net/?retryWrites=true&w=majority")
     WEB_SERVER = getenv("WEB_SERVER", True)
     PORT = int(getenv("PORT", 8080))
 cfg = Config()
