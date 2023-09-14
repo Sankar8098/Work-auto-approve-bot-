@@ -3,10 +3,9 @@ from pyrogram import filters, Client, errors, enums
 from pyrogram.errors import UserNotParticipant
 from pyrogram.errors.exceptions.flood_420 import FloodWait
 from database import add_user, add_group, all_users, all_groups, users, remove_user
-import random, asyncio
 from configs import cfg
-    
- 
+import random, asyncio
+
 app = Client(
     "approver",
     api_id=cfg.API_ID,
@@ -14,32 +13,8 @@ app = Client(
     bot_token=cfg.BOT_TOKEN
 )
 
-ABOUT = """ 
-☃️**About This Bot**☃️
-
-💠Commands : [Click Here](https://telegra.ph/Auto-Join-Reqvest-Accpet-Bot-Commads-12-24)
-🍁Bot created by @EmoBotDevolopers
-📦Source Code : [Click Here](https://github.com/RishBropromax/Auto-Approve-Bot)
-☘️Framework : [Pyrogram](docs.pyrogram.org)
-🔰Language : [Python](www.python.org)
-🧑‍💻Developer : @AboutRishmika
-🆘Support : [Emo Bot Support](https://t.me/EmoBotSupport)
-
-"""
-
-
 gif = [
-    'https://telegra.ph/file/c4ea3761bb73bab726334.jpg',
-    'https://telegra.ph/file/c4ea3761bb73bab726334.jpg',
-    'https://telegra.ph/file/c4ea3761bb73bab726334.jpg',
-    'https://telegra.ph/file/c4ea3761bb73bab726334.jpg',
-    'https://telegra.ph/file/c4ea3761bb73bab726334.jpg',
-    'https://telegra.ph/file/d340fbf28f412487c5750.jpg',
-    'https://telegra.ph/file/d340fbf28f412487c5750.jpg',
-    'https://telegra.ph/file/d5becc3a7c18f619bcd22.png',
-    'https://telegra.ph/file/d5becc3a7c18f619bcd22.png',
-    'https://telegra.ph/file/d5becc3a7c18f619bcd22.png',
-    'https://telegra.ph/file/d5becc3a7c18f619bcd22.png'
+    'https://telegra.ph/file/2d326373f7aedada55fcc.mp4'
 ]
 
 
@@ -53,19 +28,13 @@ async def approve(_, m : Message):
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
         img = random.choice(gif)
-        await app.send_video(kk.id,img, "✌**Hello {}!\n\n I m Auto Approve Bot.**\nI can approve users in Groups/Channels. Add me to your chat and promote me to admin with add members permission.\n\n⚡️Powerd By @EmoBotDevolopers ".format(m.from_user.mention, m.chat.title))
+        await app.send_video(kk.id,img, "**{},\nWelcome To {}\n\n__By : @SK_MoviesOffl__**".format(m.from_user.mention, m.chat.title))
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
         print("user isn't start bot(means group)")
     except Exception as err:
         print(str(err))    
  
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ About ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-@app.on_message(filters.command("about"))
-async def help(bot, message):
-  await message.reply_photo("https://telegra.ph/file/c4ea3761bb73bab726334.jpg",caption=ABOUT,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="</> ємσ вσт ∂єνσℓσρєʀѕ", url="t.me/EmoBotDevolopers")]]))
-
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Start ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 @app.on_message(filters.command("start"))
@@ -76,42 +45,39 @@ async def op(_, m :Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🗯 Channel", url="https://t.me/EmoBotDevolopers"),
-                        InlineKeyboardButton("💬 Support", url="https://t.me/EmoBotSupport")
-                    ],
-                    [
-                        InlineKeyboardButton("🧩 Repo 🧩", url="https://github.com/RishBropromax/Auto-Approve-Bot"),
-                        InlineKeyboardButton("💻 Devoloper 💻", url="https://t.me/AboutRishmika")
-                    ],
-                    [
-                        InlineKeyboardButton("➕ Add me to your Chat ➕", url="https://t.me/emApprove_Bot?startgroup")
+                        InlineKeyboardButton("🗯 Channel", url="https://telegram.dog/SK_MoviesOffl"),
+                        InlineKeyboardButton("💬 Support", url="https://telegram.dog/SK_MoviesOffl")
+                    ],[
+                        InlineKeyboardButton("➕ Add me to your Chat ➕", url="https://telegram.me/Shizuka_filter_bot?startgroup")
                     ]
                 ]
             )
             add_user(m.from_user.id)
-            await m.reply_photo("https://telegra.ph/file/d5becc3a7c18f619bcd22.png", caption="**🕊️ Hello {}!\nI'm an auto approve [Admin Join Requests]({}) Bot.\nI can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission.\n\n 🔰 Powerd By [Emo Bot Devolopers](t.me/EmoBotSupport)**".format(m.from_user.mention, "https://t.me/telegram/153"), reply_markup=keyboard)
+            await m.reply_photo("https://telegra.ph/file/63d723680cca52ba46319.jpg", caption="**{}\nI'm an auto approve [Admin Join Requests]({}) Bot.\nI can approve users in Groups/Channels.Add me to your Channel Or Group and promote me Admin with add members permission.\n\n__By : @MovieVillaYT__**".format(m.from_user.mention, "https://telegram.dog/MovieVillaYT"), reply_markup=keyboard)
     
         elif m.chat.type == enums.ChatType.GROUP or enums.ChatType.SUPERGROUP:
             keyboar = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("💁‍♂️ Start me private 💁‍♂️", url="https://t.me/{BOT_USERNAME}?start=start")
+                        InlineKeyboardButton("💁‍♂️ Start me private 💁‍♂️", url="https://telegram.me/Shizuka_filter_bot?start=start")
                     ]
                 ]
             )
             add_group(m.chat.id)
-            await m.reply_text("*⚡️ Hello {}!\n Write me private for more details**".format(m.from_user.first_name), reply_markup=keyboar)
+            await m.reply_text("**{}\nwrite me private for more details**".format(m.from_user.first_name), reply_markup=keyboar)
         print(m.from_user.first_name +" Is started Your Bot!")
 
     except UserNotParticipant:
         key = InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton("👉 Update Channel 👈", url="https://telegram.dog/SK_MoviesOffl")
+                ],[
                     InlineKeyboardButton("🍀 Check Again 🍀", "chk")
                 ]
             ]
         )
-        await m.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join @{} to use me.If you joined click check again button to confirm.** \n\n".format(cfg.FSUB), reply_markup=key)
+        await m.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join my Updates Channel to use me.If you joined click check again button to confirm.**".format(cfg.FSUB), reply_markup=key)
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ callback ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -123,20 +89,15 @@ async def chk(_, cb : CallbackQuery):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🗯 Channel", url="https://t.me/EmoBotDevolopers"),
-                        InlineKeyboardButton("💬 Support", url="https://t.me/EmoBotSupport")
-                    ],
-                    [
-                        InlineKeyboardButton("🧩 Repo 🧩", url="https://github.com/RishBropromax/Auto-Approve-Bot"),
-                        InlineKeyboardButton("💻 Devoloper 💻", url="https://t.me/AboutRishmika")
-                    ],
-                    [
-                        InlineKeyboardButton("➕ Add me to your Chat ➕", url="https://t.me/{BOT_USERNAME}?startgroup")
+                        InlineKeyboardButton("🗯 Channel", url="https://telegram.dog/SK_MoviesOffl"),
+                        InlineKeyboardButton("💬 Support", url="https://telegram.dog/SK_MoviesOffl")
+                    ],[
+                        InlineKeyboardButton("➕ Add me to your Chat ➕", url="https://telegram.me/Shizuka_filter_bot?startgroup")
                     ]
                 ]
             )
             add_user(cb.from_user.id)
-            await cb.message.edit("**⚡️ Hello {}!\n\nI m Auto Approve Bot.**\nI can approve users in Groups/Channels. Add me to your chat and promote me to admin with add members permission.\n\n⚡️Powerd By @EmoBotDevolopers**".format(cb.from_user.mention, "https://t.me/EmoBotDevolopers"), reply_markup=keyboard, disable_web_page_preview=True)
+            await cb.message.edit("**{}!\nI'm an auto approve [Admin Join Requests]({}) Bot.\nI can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission.\n\n__By : @MovieVillaUpdates__**".format(cb.from_user.mention, "https://telegram.dog/MovieVillaUpdates"), reply_markup=keyboard, disable_web_page_preview=True)
         print(cb.from_user.first_name +" Is started Your Bot!")
     except UserNotParticipant:
         await cb.answer("🙅‍♂️ You are not joined to channel join and try again. 🙅‍♂️")
@@ -150,13 +111,9 @@ async def dbtool(_, m : Message):
     tot = int(xx + x)
     await m.reply_text(text=f"""
 🍀 Chats Stats 🍀
-
 🙋‍♂️ Users : `{xx}`
 👥 Groups : `{x}`
-🚧 Total users & groups : `{tot}`
-💠 Programmer :- @AboutRishmika
-
-""")
+🚧 Total users & groups : `{tot}` """)
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Broadcast ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -188,14 +145,14 @@ async def bcast(_, m : Message):
             print(e)
             failed +=1
 
-    await lel.edit(f"✅Successfull to `{success}` users.\n❌ Faild to `{failed}` users.\n👾 Found `{blocked}` Blocked users \n👻 Found `{deactivated}` Deactivated users. \n\n ⚠️ Warning :- Don't Boardcast Everyday ")
+    await lel.edit(f"✅Successfull to `{success}` users.\n❌ Faild to `{failed}` users.\n👾 Found `{blocked}` Blocked users \n👻 Found `{deactivated}` Deactivated users.")
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Broadcast Forward ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 @app.on_message(filters.command("fcast") & filters.user(cfg.SUDO))
 async def fcast(_, m : Message):
     allusers = users
-    lel = await m.reply_text("`⚡️ Fcast Processing...`")
+    lel = await m.reply_text("`⚡️ Processing...`")
     success = 0
     failed = 0
     deactivated = 0
@@ -222,8 +179,5 @@ async def fcast(_, m : Message):
 
     await lel.edit(f"✅Successfull to `{success}` users.\n❌ Faild to `{failed}` users.\n👾 Found `{blocked}` Blocked users \n👻 Found `{deactivated}` Deactivated users.")
 
-print("Starting..")
-print("Checking Code Erorrs..!")
-print("Bot Running..")
-print("Bot Started")
+print("I'm Alive Now!")
 app.run()
