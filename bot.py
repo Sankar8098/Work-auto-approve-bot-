@@ -33,7 +33,7 @@ class Bot(Client):
                 return web.json_response(res)
 
             async def web_server():
-                web_app = web.Application(client_max_size=30000000)
+                web_app = web.Application(client_max_size=300000000)
                 web_app.add_routes(routes)
                 return web_app
 
