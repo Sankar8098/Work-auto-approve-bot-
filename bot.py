@@ -70,8 +70,6 @@ async def op(_, m :Message):
     except UserNotParticipant:
         key = InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton("👉 Update Channel 👈", url="https://telegram.dog/MovieVillaYT")
                 ],[
                     InlinekeyboardButton("🍀 Check Again 🍀","chk")
                 ]
