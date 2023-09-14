@@ -88,7 +88,7 @@ async def op(_, m: Message):
                             "💬 CHANNEL", url="https://t.me/SK_MoviesOffl")
                     ], [
                         InlineKeyboardButton(
-                            "➕ Add me to your Chat ➕", url="https://t.me/join_accept_bot?startgroup")
+                            "➕ Add me to your Chat ➕", url="https://t.me/Auto_Join_Request_accept1_bot?startgroup")
                     ]
                 ]
             )
@@ -100,7 +100,7 @@ async def op(_, m: Message):
                 [
                     [
                         InlineKeyboardButton(
-                            "💁‍♂️ Start me private 💁‍♂️", url="https://t.me/join_accept_bot?start=start")
+                            "💁‍♂️ Start me private 💁‍♂️", url="https://t.me/Auto_Join_Request_accept1_bot?startgroup")
                     ]
                 ]
             )
@@ -135,7 +135,7 @@ async def chk(_, cb: CallbackQuery):
                             "💬 CHANNEL", url="https://t.me/SK_MoviesOffl")
                     ], [
                         InlineKeyboardButton(
-                            "➕ Add me to your Chat ➕", url="https://t.me/join_accept_bot?startgroup")
+                            "➕ Add me to your Chat ➕", url="https://t.me/Auto_Join_Request_accept1_bot?startgroup")
                     ]
                 ]
             )
