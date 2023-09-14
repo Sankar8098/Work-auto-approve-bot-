@@ -70,8 +70,7 @@ async def op(_, m :Message):
     except UserNotParticipant:
         key = InlineKeyboardMarkup(
             [
-                ],[
-                    InlinekeyboardButton("🍀 Check Again 🍀","chk")
+            [                  InlinekeyboardButton("🍀 Check Again 🍀","chk")
                 ]
             ]
         )
